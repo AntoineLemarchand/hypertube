@@ -3,6 +3,19 @@ networks:
   net_front:
 
 services:
+  front:
+    container_name: front
+    restart: unless-stopped
+    env_file:
+      - .env
+    build:
+      context: ./front/
+      dockerfile: ./Dockerfile
+    ports:
+      - "${FRONT_PORT}:3000"
+    networks:
+      - net_front
+      - net_back
   back:
     container_name: back
     restart: unless-stopped
@@ -10,9 +23,9 @@ services:
       - .env
     build:
       context: ./back/
-      dockerfile: ./DockerFile
+      dockerfile: ./Dockerfile
     ports:
-      - "8080:8080"
+      - "${BACK_PORT}:8080"
     networks:
       - net_back
       - net_front

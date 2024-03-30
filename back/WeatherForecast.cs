@@ -1,4 +1,4 @@
-namespace backend;
+namespace back;
 
 public class WeatherForecast
 {

@@ -1,5 +1,8 @@
 'use client';
 
+import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -64,15 +67,17 @@ export default function Home() {
         <Link href="/signup" className="flex justify-center items-center w-80 h-12 mt-4 bg-blue-700 rounded-lg text-gray-200 hover:bg-blue-500 hover:text-gray-700 transition-colors">
           Sign up
         </Link>
-        <button type="button" className="w-80 h-12 mt-4 bg-blue-800 rounded-lg text-gray-200 hover:bg-blue-600 transition-colors">
-          Facebook
-        </button>
-        <button type="button" className="w-80 h-12 mt-4 ml-2 bg-red-700 rounded-lg text-gray-200 hover:bg-red-500 transition-colors">
-          Google
-        </button>
-        <button type="button" className="w-80 h-12 mt-4 ml-2 bg-gray-700 rounded-lg text-gray-200 hover:bg-gray-500 transition-colors">
-          42 school
-        </button>
+        <div className="w-full flex justify-evenly">
+            <button type="button" className="w-12 h-12 mt-4 bg-blue-800 rounded-lg text-gray-200 hover:bg-blue-600 transition-colors">
+                <FontAwesomeIcon icon={faFacebookF}/>
+            </button>
+            <button type="button" className="w-12 h-12 mt-4 ml-2 bg-red-700 rounded-lg text-gray-200 hover:bg-red-500 transition-colors">
+                <FontAwesomeIcon icon={faGoogle}/>
+            </button>
+            <button type="button" className="w-12 h-12 mt-4 ml-2 bg-gray-700 rounded-lg text-gray-200 hover:bg-gray-500 transition-colors flex justify-center items-center">
+                <Image src="/42_Logo.svg" alt="42 logo" width={24} height={24} />
+            </button>
+        </div>
       </form>
     </main>
   );
